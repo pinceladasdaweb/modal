@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Modal by pinceladasdaweb</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Modal</h1>
+        <p>An extremely simple modal plugin developed with Vanilla JS</p>
+
+        <p class="view"><a href="https://github.com/pinceladasdaweb/modal">View the Project on GitHub <small>pinceladasdaweb/modal</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/pinceladasdaweb/modal/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/pinceladasdaweb/modal/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/pinceladasdaweb/modal">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="modal" class="anchor" href="#modal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>modal</h1>
+
+<p>An extremely simple modal plugin developed with Vanilla JS</p>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>View <a href="https://pinceladasdaweb.github.io/modal/example/">demo here</a></p>
+
+<h2>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download</h2>
+
+<p>You can download the latest version or checkout all the releases <a href="https://github.com/pinceladasdaweb/modal/releases">here</a>.</p>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use?</h2>
+
+<p>Require the package or use the global <code>Modal</code> namespace:</p>
+
+<h3>
+<a id="amd" class="anchor" href="#amd" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AMD</h3>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1"><span class="pl-c1">require</span>([<span class="pl-s"><span class="pl-pds">"</span>path/to/modal.js<span class="pl-pds">"</span></span>], <span class="pl-k">function</span>(<span class="pl-smi">Modal</span>) {</span>
+<span class="pl-s1">    <span class="pl-c">// Code here</span></span>
+<span class="pl-s1">});</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<h3>
+<a id="commonjs" class="anchor" href="#commonjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>commonJS</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> Modal <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>modal<span class="pl-pds">'</span></span>);</pre></div>
+
+<h3>
+<a id="es6" class="anchor" href="#es6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ES6</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> <span class="pl-smi">Modal</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>modal<span class="pl-pds">'</span></span>;</pre></div>
+
+<h3>
+<a id="browser" class="anchor" href="#browser" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browser</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>path/to/modal.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<h2>
+<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic Usage</h2>
+
+<p>Open modal with custom content or html:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">&lt;</span>script<span class="pl-k">&gt;</span>
+    <span class="pl-k">new</span> <span class="pl-en">Modal</span>({
+        content<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;div class="my-class"&gt;Content of my modal here&lt;/div&gt;<span class="pl-pds">'</span></span>
+    });
+<span class="pl-k">&lt;</span><span class="pl-k">/</span>script<span class="pl-k">&gt;</span></pre></div>
+
+<p>Open modal indicating an element in the HTML:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>mdl-content<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>display: none<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">h2</span>&gt;Modal content here&lt;/<span class="pl-ent">h2</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;
+
+<span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    <span class="pl-k">var</span> mdl <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">'</span>.mdl-content<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">new</span> <span class="pl-en">Modal</span>({</span>
+<span class="pl-s1">        content<span class="pl-k">:</span> mdl</span>
+<span class="pl-s1">    });</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<h2>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h2>
+
+<p>The script expect the following options:</p>
+
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>content</strong></td>
+<td align="center">String/DOM node. Required. The content of your modal.</td>
+</tr>
+<tr>
+<td><strong>minHeight</strong></td>
+<td align="center">Integer. Optional. The min-height of modal. Default is 250.</td>
+</tr>
+<tr>
+<td><strong>maxWidth</strong></td>
+<td align="center">Integer. Optional. The min-height of modal. Default is 600.</td>
+</tr>
+<tr>
+<td><strong>onOpen</strong></td>
+<td align="center">Optional. Function to run after modal is open.</td>
+</tr>
+<tr>
+<td><strong>onClose</strong></td>
+<td align="center">Optional. Function to run after modal is closed.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="browser-support" class="anchor" href="#browser-support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browser Support</h2>
+
+<table>
+<thead>
+<tr>
+<th><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png" alt="IE"></th>
+<th><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/chrome/chrome_48x48.png" alt="Chrome"></th>
+<th><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/firefox/firefox_48x48.png" alt="Firefox"></th>
+<th><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/opera/opera_48x48.png" alt="Opera"></th>
+<th><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/safari/safari_48x48.png" alt="Safari"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IE 10+ ✔</td>
+<td>Latest ✔</td>
+<td>Latest ✔</td>
+<td>Latest ✔</td>
+<td>Latest ✔</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Check <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> for more information.</p>
+
+<h2>
+<a id="history" class="anchor" href="#history" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>History</h2>
+
+<p>Check <a href="https://github.com/pinceladasdaweb/modal/releases">Releases</a> for detailed changelog.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="LICENSE">MIT</a></p>
+
+<h2>
+<a id="to-do" class="anchor" href="#to-do" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To do</h2>
+
+<ul>
+<li>[ ] Optmizations for mobile.</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/pinceladasdaweb">pinceladasdaweb</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
