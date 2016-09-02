@@ -8,8 +8,8 @@
     top: 0;
     width: 100%;
     z-index: 998;
-    -webkit-animation-duration: 0.5s;
-            animation-duration: 0.5s;
+    -webkit-animation-duration: .3s;
+            animation-duration: .3s;
     -webkit-animation-fill-mode: both;
             animation-fill-mode: both;
     -webkit-animation-name: modal;
@@ -17,8 +17,8 @@
 }
 
 .overlay-hide {
-    -webkit-animation-duration: 0.5s;
-            animation-duration: 0.5s;
+    -webkit-animation-duration: .3s;
+            animation-duration: .3s;
     -webkit-animation-fill-mode: both;
             animation-fill-mode: both;
     -webkit-animation-name: modalhide;
@@ -29,16 +29,44 @@
     background-color: #fff;
     border-radius: 2px;
     left: 50%;
+    opacity: 0;
     padding: 24px 20px;
     position: absolute;
     top: 50%;
     width: 100%;
     z-index: 999;
+    -webkit-transition: 1ms opacity ease;
+       -moz-transition: 1ms opacity ease;
+        -ms-transition: 1ms opacity ease;
+         -o-transition: 1ms opacity ease;
+            transition: 1ms opacity ease;
     -webkit-transform: translate(-50%, -50%);
        -moz-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
          -o-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+}
+
+.modal.fade-and-drop {
+    opacity: 1;
+    top: -300%;
+}
+
+.modal.fade-and-drop.open {
+    top: 50%;
+    -webkit-transition: 300ms top 300ms ease;
+       -moz-transition: 300ms top 300ms ease;
+        -ms-transition: 300ms top 300ms ease;
+         -o-transition: 300ms top 300ms ease;
+            transition: 300ms top 300ms ease;
+}
+
+.modal.fade-and-drop {
+    -webkit-transition: 500ms top ease;
+       -moz-transition: 500ms top ease;
+        -ms-transition: 500ms top ease;
+         -o-transition: 500ms top ease;
+            transition: 500ms top ease;
 }
 
 @-webkit-keyframes modal {
