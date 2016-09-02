@@ -22,10 +22,11 @@
             return;
         }
 
-        this.content  = options.content;
-        this.maxWidth = options.maxWidth || 600;
-        this.onOpen   = options.onOpen   || undefined;
-        this.onClose  = options.onClose  || undefined;
+        this.content   = options.content;
+        this.minHeight = options.minHeight || 250;
+        this.maxWidth  = options.maxWidth  || 600;
+        this.onOpen    = options.onOpen    || undefined;
+        this.onClose   = options.onClose   || undefined;
 
         this.ready();
     };
@@ -77,20 +78,26 @@
             return el;
         },
         drawElements: function () {
-            var overlay, modal, modalContent, btn;
+            var animationEvent = this.whichAnimationEvent(),
+                overlay, modal, modalContent, btn;
 
             overlay      = this.createEls('div', { className: 'overlay' });
-            modal        = this.createEls('div', { className: 'modal open', id: 'modal' });
+            modal        = this.createEls('div', { className: 'modal fade-and-drop', id: 'modal' });
             modalContent = this.createEls('div', { className: 'modal-content' });
             btn          = this.createEls('button', { className: 'modal-close close-button', type: 'button' }, 'X');
 
-            modal.style.maxWidth = this.maxWidth + "px";
+            modal.style.minHeight = this.minHeight + "px";
+            modal.style.maxWidth  = this.maxWidth + "px";
 
             modal.appendChild(btn);
             modal.appendChild(modalContent);
 
             document.body.appendChild(overlay);
             document.body.appendChild(modal);
+
+            overlay.addEventListener(animationEvent, function () {
+                this.addClass(modal, 'open');
+            }.bind(this), false);
         },
         injectHtml: function () {
             var modalContent = document.querySelector('.modal-content');
@@ -115,12 +122,12 @@
 
             if (overlay !== null && modal !== null) {
                 this.addClass(overlay, 'overlay-hide');
+                this.removeClass(modal, 'open');
 
-                overlay.addEventListener(animationEvent, function (e) {
+                overlay.addEventListener(animationEvent, function () {
                     root.removeChild(overlay);
-                });
-
-                root.removeChild(modal);
+                    root.removeChild(modal);
+                }, false);
 
                 typeof this.onClose === 'function' && this.onClose.call();
             }
