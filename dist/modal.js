@@ -12,9 +12,9 @@
 }(this, function () {
     "use strict";
     
-    var Modal = function (content, options) {
+    var Modal = function (options) {
         if (!(this instanceof Modal)) {
-            return new Modal(content, options);
+            return new Modal(options);
         }
 
         if (!content) {
@@ -22,7 +22,7 @@
             return;
         }
 
-        this.content  = content;
+        this.content  = options.content;
         this.maxWidth = options.maxWidth || 600;
         this.onOpen   = options.onOpen   || undefined;
         this.onClose  = options.onClose  || undefined;
@@ -31,6 +31,23 @@
     };
 
     Modal.prototype = {
+        whichAnimationEvent: function () {
+            var el = document.createElement("fakeelement"),
+            animations, t;
+
+            animations = {
+                "animation"      : "animationend",
+                "OAnimation"     : "oAnimationEnd",
+                "MozAnimation"   : "animationend",
+                "WebkitAnimation": "webkitAnimationEnd"
+            }
+
+            for (t in animations){
+                if (el.style[t] !== undefined) {
+                    return animations[t];
+                }
+            }
+        },
         hasClass: function (el, name) {
             return new RegExp('(\\s|^)' + name + '(\\s|$)').test(el.className);
         },
@@ -63,7 +80,7 @@
             var overlay, modal, modalContent, btn;
 
             overlay      = this.createEls('div', { className: 'overlay' });
-            modal        = this.createEls('div', { className: 'modal', id: 'modal' });
+            modal        = this.createEls('div', { className: 'modal open', id: 'modal' });
             modalContent = this.createEls('div', { className: 'modal-content' });
             btn          = this.createEls('button', { className: 'modal-close close-button', type: 'button' }, 'X');
 
@@ -91,12 +108,18 @@
             typeof this.onOpen === 'function' && this.onOpen.call();
         },
         close: function () {
-            var root    = document.body,
-                overlay = document.querySelector('.overlay'),
-                modal   = document.querySelector('.modal');
+            var root           = document.body,
+                animationEvent = this.whichAnimationEvent(),
+                overlay        = document.querySelector('.overlay'),
+                modal          = document.querySelector('.modal');
 
             if (overlay !== null && modal !== null) {
-                root.removeChild(overlay);
+                this.addClass(overlay, 'overlay-hide');
+
+                overlay.addEventListener(animationEvent, function (e) {
+                    root.removeChild(overlay);
+                });
+
                 root.removeChild(modal);
 
                 typeof this.onClose === 'function' && this.onClose.call();

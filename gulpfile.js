@@ -1,6 +1,7 @@
 var gulp     = require('gulp'),
     header   = require('gulp-header'),
     uglify   = require('gulp-uglify'),
+    cleanCSS = require('gulp-clean-css'),
     rename   = require('gulp-rename'),
     package  = require('./package.json'),
     banner;
@@ -25,8 +26,18 @@ gulp.task('compress:js', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('watch', function () {
-    gulp.watch('src/modal.js', ['compress:js']);
+gulp.task('compress:css', function() {
+  return gulp.src('src/modal.css')
+    .pipe(header(banner, { package : package }))
+    .pipe(gulp.dest('dist/'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(cleanCSS())
+    .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('default', ['compress:js']);
+gulp.task('watch', function () {
+    gulp.watch('src/modal.js', ['compress:js']);
+    gulp.watch('src/modal.css', ['compress:css']);
+});
+
+gulp.task('default', ['compress:js', 'compress:css']);

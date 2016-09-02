@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Modal.js - An extremely simple modal plugin developed with Vanilla JS</title>
     <link rel="stylesheet" type="text/css" href="minireset.css">
+    <link rel="stylesheet" type="text/css" href="../dist/modal.css">
     <style type="text/css">
         html {
             box-sizing: border-box
@@ -61,7 +62,9 @@
         btn.addEventListener('click', function (e) {
             e.preventDefault();
 
-            new Modal(mdl, {});            
+            new Modal({
+                content: mdl
+            });            
         }, false);
     </script>
 </body>
