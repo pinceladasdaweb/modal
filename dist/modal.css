@@ -69,6 +69,19 @@
             transition: 500ms top ease;
 }
 
+.modal-close {
+    background-color: #e74c3c;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font: 700/12px 24px Helvetica, Arial, sans-serif;
+    outline: none;
+    padding: 5px 7px 7px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
 @-webkit-keyframes modal {
     0% {
         opacity: 0;
