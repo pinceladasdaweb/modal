@@ -1,4 +1,4 @@
-/*! modal v0.0.1 | (c) 2016 Pedro Rogerio | https://github.com/pinceladasdaweb/modal */
+/*! modal v0.0.2 | (c) 2016 Pedro Rogerio | https://github.com/pinceladasdaweb/modal */
 (function (root, factory) {
     "use strict";
     
@@ -84,7 +84,7 @@
             overlay      = this.createEls('div', { className: 'overlay' });
             modal        = this.createEls('div', { className: 'modal fade-and-drop', id: 'modal' });
             modalContent = this.createEls('div', { className: 'modal-content' });
-            btn          = this.createEls('button', { className: 'modal-close close-button', type: 'button' }, 'X');
+            btn          = this.createEls('button', { className: 'modal-close close-button', type: 'button' }, '\u2573');
 
             modal.style.minHeight = this.minHeight + "px";
             modal.style.maxWidth  = this.maxWidth + "px";
