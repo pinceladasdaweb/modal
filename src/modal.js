@@ -36,10 +36,10 @@
             animations, t;
 
             animations = {
-                "animation"      : "animationend",
-                "OAnimation"     : "oAnimationEnd",
-                "MozAnimation"   : "animationend",
-                "WebkitAnimation": "webkitAnimationEnd"
+                "animation"       : "animationend",
+                "OAnimation"      : "oAnimationEnd",
+                "MozAnimation"    : "animationend",
+                "WebkitAnimation" : "webkitAnimationEnd"
             }
 
             for (t in animations){
@@ -78,6 +78,7 @@
         },
         drawElements: function () {
             var animationEvent = this.whichAnimationEvent(),
+                fragment       = document.createDocumentFragment(),
                 overlay, modal, modalContent, btn;
 
             overlay      = this.createEls('div', { className: 'overlay' });
@@ -85,14 +86,16 @@
             modalContent = this.createEls('div', { className: 'modal-content' });
             btn          = this.createEls('button', { className: 'modal-close close-button', type: 'button' }, '\u2573');
 
-            modal.style.minHeight = this.minHeight + "px";
-            modal.style.maxWidth  = this.maxWidth + "px";
+            modal.style.minHeight = (typeof this.minHeight === 'number') ? this.minHeight + 'px' : this.minHeight;
+            modal.style.maxWidth  = (typeof this.maxWidth === 'number') ? this.maxWidth + 'px' : this.maxWidth;
 
             modal.appendChild(btn);
             modal.appendChild(modalContent);
 
-            document.body.appendChild(overlay);
-            document.body.appendChild(modal);
+            fragment.appendChild(overlay);
+            fragment.appendChild(modal);
+
+            document.body.appendChild(fragment);
 
             overlay.addEventListener(animationEvent, function () {
                 this.addClass(modal, 'open');
