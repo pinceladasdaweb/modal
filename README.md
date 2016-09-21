@@ -72,8 +72,8 @@ The script expect the following options:
 | Value                              | Description                                                                  |
 | ---------------------------------- |:----------------------------------------------------------------------------:|
 | **content**                        | String/DOM node. Required. The content of your modal.                        |
-| **minHeight**                      | Integer. Optional. The min-height of modal. Default is 250.                  |
-| **maxWidth**                       | Integer. Optional. The min-height of modal. Default is 600.                  |
+| **minHeight**                      | Integer/String. Optional. The min-height of modal. Default is 250px.         |
+| **maxWidth**                       | Integer/String. Optional. The min-height of modal. Default is 600px.         |
 | **onOpen**                         | Optional. Function to run after modal is open.                               |
 | **onClose**                        | Optional. Function to run after modal is closed.                             |
 
@@ -93,7 +93,3 @@ Check [Releases](https://github.com/pinceladasdaweb/modal/releases) for detailed
 
 ## License
 [MIT](LICENSE)
-
-## To do
-
-- [ ] Optmizations for mobile.
