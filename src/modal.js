@@ -84,7 +84,7 @@
             overlay      = this.createEls('div', { className: 'overlay' });
             modal        = this.createEls('div', { className: 'modal fade-and-drop', id: 'modal' });
             modalContent = this.createEls('div', { className: 'modal-content' });
-            btn          = this.createEls('button', { className: 'modal-close close-button', type: 'button' }, '\u2573');
+            btn          = this.createEls('button', { className: 'modal-close close-button', type: 'button' }, '\u00D7');
 
             modal.style.minHeight = (typeof this.minHeight === 'number') ? this.minHeight + 'px' : this.minHeight;
             modal.style.maxWidth  = (typeof this.maxWidth === 'number') ? this.maxWidth + 'px' : this.maxWidth;
@@ -105,11 +105,17 @@
             var modalContent = document.querySelector('.modal-content');
 
             if (this.content instanceof Node) {
-                if (this.content.hasAttribute("style")) {
-                    this.content.removeAttribute("style");
+                var content = this.content.cloneNode(true);
+                
+                if (content.hasAttribute("style")) {
+                    content.removeAttribute("style");
                 }
 
-                modalContent.appendChild(this.content);
+                if (this.hasClass(content, 'hide')) {
+                    this.removeClass(content, 'hide')
+                }
+
+                modalContent.appendChild(content);
             } else {
                 modalContent.insertAdjacentHTML('beforeend', this.content);
             }
