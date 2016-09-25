@@ -1,7 +1,7 @@
 /*! modal v0.0.4 | (c) 2016 Pedro Rogerio | https://github.com/pinceladasdaweb/modal */
 (function (root, factory) {
     "use strict";
-    
+
     if (typeof define === 'function' && define.amd) {
         define([], factory);
     } else if (typeof exports === 'object') {
@@ -11,13 +11,17 @@
     }
 }(this, function () {
     "use strict";
-    
+
     var Modal = function (options) {
         if (!(this instanceof Modal)) {
             return new Modal(options);
         }
 
-        if (!content) {
+        if (!options) {
+            options = {}
+        }
+
+        if (!options.content) {
             console.warn('Modal: Do not instantiate the plugin without defining the content');
             return;
         }
@@ -107,7 +111,7 @@
 
             if (this.content instanceof Node) {
                 var content = this.content.cloneNode(true);
-                
+
                 if (content.hasAttribute("style")) {
                     content.removeAttribute("style");
                 }
