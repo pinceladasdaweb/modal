@@ -1,4 +1,4 @@
-/*! modal v0.0.4 | (c) 2016 Pedro Rogerio | https://github.com/pinceladasdaweb/modal */
+/*! modal v0.0.5 | (c) 2016 Pedro Rogerio | https://github.com/pinceladasdaweb/modal */
 (function (root, factory) {
     "use strict";
 
