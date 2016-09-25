@@ -1,6 +1,6 @@
-/*! modal v0.0.4 | (c) 2016 Pedro Rogerio | https://github.com/pinceladasdaweb/modal */
+/*! modal v0.0.5 | (c) 2016 Pedro Rogerio | https://github.com/pinceladasdaweb/modal */
 .overlay {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     left: 0;
     height: 100%;
     opacity: 0;
@@ -8,21 +8,12 @@
     top: 0;
     width: 100%;
     z-index: 998;
-    -webkit-animation-duration: 250ms;
-            animation-duration: 250ms;
-    -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
-    -webkit-animation-name: modal;
-            animation-name: modal;
+
+    animation: modal 0.15s ease 1 normal 0s running forwards;
 }
 
 .overlay-hide {
-    -webkit-animation-duration: .3s;
-            animation-duration: .3s;
-    -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
-    -webkit-animation-name: modalhide;
-            animation-name: modalhide;
+    animation: modalhide 0.15s ease 1 normal 0s running forwards;
 }
 
 .modal {
@@ -35,38 +26,19 @@
     top: 50%;
     width: 100%;
     z-index: 999;
-    -webkit-transition: 1ms opacity ease;
-       -moz-transition: 1ms opacity ease;
-        -ms-transition: 1ms opacity ease;
-         -o-transition: 1ms opacity ease;
-            transition: 1ms opacity ease;
-    -webkit-transform: translate(-50%, -50%);
-       -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-         -o-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transition: 1ms opacity ease;
+    transform: translate(-50%, -50%);
 }
 
 .modal.fade-and-drop {
     opacity: 1;
     top: -300%;
+    transition: 500ms top ease;
 }
 
 .modal.fade-and-drop.open {
     top: 50%;
-    -webkit-transition: 300ms top 300ms ease;
-       -moz-transition: 300ms top 300ms ease;
-        -ms-transition: 300ms top 300ms ease;
-         -o-transition: 300ms top 300ms ease;
-            transition: 300ms top 300ms ease;
-}
-
-.modal.fade-and-drop {
-    -webkit-transition: 500ms top ease;
-       -moz-transition: 500ms top ease;
-        -ms-transition: 500ms top ease;
-         -o-transition: 500ms top ease;
-            transition: 500ms top ease;
+    transition: 300ms top 300ms ease;
 }
 
 .modal-close {
@@ -82,16 +54,6 @@
     top: 5px;
 }
 
-@-webkit-keyframes modal {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
 @keyframes modal {
     0% {
         opacity: 0;
@@ -99,16 +61,6 @@
 
     100% {
         opacity: 1;
-    }
-}
-
-@-webkit-keyframes modalhide {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
     }
 }
 
